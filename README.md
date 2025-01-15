@@ -14,7 +14,7 @@ This project demonstrates how to build and automate an ETL pipeline written in P
 The architecture (Data flow) used in this project uses different Open source and cloud components as described below:
 
 <p align="center">
-  <img width="1000" height="550" src="images/data pipeline.png">
+  <img width="1000" height="550" src="images/data_pipeline.png">
   <h6 align="center"> Source: Muhammadjon </h6>
 </p>
 
