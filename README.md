@@ -193,11 +193,6 @@ An airflow UI is generated when the webserver is up and running with some pre-de
 
 * **Step 4** - We can write the transform_load_data function and configure Airflow to securely manage AWS credentials using environment variables. This approach ensures that sensitive information, such as access keys and session tokens, is not hardcoded into the codebase, enhancing security and maintainability. The AWS session credentials are dynamically fetched during runtime to interact with AWS S3 components effectively.
 
-* **Step 5** - Now, we can see that, we have csv files stored in AWS S3 buckets using data pipeline that we just created.
-<p align="center">
-  <img  height="600" src="images/aws_buckets.png">
-  <h6 align = "center" > Source: Author </h6>
-</p>  
-
+* **Step 5** - Now,we have csv files stored in AWS S3 buckets using data pipeline that we just created.
 
 
