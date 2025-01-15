@@ -14,9 +14,10 @@ This project demonstrates how to build and automate an ETL pipeline written in P
 The architecture (Data flow) used in this project uses different Open source and cloud components as described below:
 
 <p align="center">
-  <img width="1000" height="550" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/a63db442-0e05-48e9-9c03-27d808053c09">
-  <h6 align = "center" > Source: Author </h6>
+  <img width="1000" height="550" src="images/data pipeline.png">
+  <h6 align="center"> Source: Muhammadjon </h6>
 </p>
+
 
 # Dataset Used
 
@@ -93,7 +94,7 @@ https://api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
 * **Step 1** - Since all the computations and code will be written in a virtual environment. The first task is to commission AWS EC2 VM and install python dependencies along with airflow and pandas. We will create a python virtual envionrment and install all the dependencies inside that environment such that our process is contained in a safe environment. This will our airflow server and we will be running airflow standalone in this machine. 
 
 <p align="center">
-  <img width="650" height="500" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/6d0500b7-06e9-464a-b343-89c32e56dfda">
+  <img width="650" height="500" src="images/aws_airflow.png">
   <h6 align = "center" > Source: Author </h6>
 </p>
 
@@ -106,7 +107,7 @@ Airflow has four core components that are important for its function:
 An airflow UI is generated when the webserver is up and running with some pre-defined DAGs as shown below:
 
 <p align="center">
-  <img  height="500" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/b85b7b02-deed-4dc3-93e5-a373e79d74a2">
+  <img  height="500" src="images/dags_list.png">
   <h6 align = "center" > Source: Author </h6>
 </p>
 
@@ -116,7 +117,7 @@ An airflow UI is generated when the webserver is up and running with some pre-de
 * **Step 2** - In order for airflow to make API calls to open weather, there needs to be a connection between two services which can be done using 'connections' tab in airflow. This will allow airflow to access openweather map using HTTP operator.
 
 <p align="center">
-  <img  height="500" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/55509511-414a-438a-9612-5b9168a7ec23">
+  <img  height="500" src="images/connection_airflow.png">
   <h6 align = "center" > Source: Author </h6>
 </p>
 
@@ -186,21 +187,15 @@ An airflow UI is generated when the webserver is up and running with some pre-de
  <h4 align ='center' >   is_weather_api_available >> extract_weather_data >> transform_load_weather_data </h4>
   
 <p align="center">
-  <img  height="500" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/1e3c5466-256f-47ed-a926-5cb69c0f2663">
+  <img  height="500" src="images/airflow_ui.png">
   <h6 align = "center" > Source: Author </h6>
 </p>
 
-* **Step 4** - We can write the tranform function and give appropriate permissions to airflow for using AWS S3 and proper session credentials. For every transaction, AWS creates a session window that allows a service to interact with AWS components.
-
-<p align="center">
-  <img  height="600" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/d142838b-1643-4498-b952-56c35fd89569">
-  <h6 align = "center" > Source: Author </h6>
-</p>  
-
+* **Step 4** - We can write the transform_load_data function and configure Airflow to securely manage AWS credentials using environment variables. This approach ensures that sensitive information, such as access keys and session tokens, is not hardcoded into the codebase, enhancing security and maintainability. The AWS session credentials are dynamically fetched during runtime to interact with AWS S3 components effectively.
 
 * **Step 5** - Now, we can see that, we have csv files stored in AWS S3 buckets using data pipeline that we just created.
 <p align="center">
-  <img  height="600" src="https://github.com/chayansraj/Python-ETL-pipeline-using-Airflow-on-AWS/assets/22219089/d9ab4360-badf-49fc-be86-eddf0f6ceb57">
+  <img  height="600" src="images/aws_buckets.png">
   <h6 align = "center" > Source: Author </h6>
 </p>  
 
